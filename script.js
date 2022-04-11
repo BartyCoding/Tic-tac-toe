@@ -3,8 +3,13 @@ let currentPlayer = 1
 let grid = document.getElementById("grid")
 let gridChildren = grid.children
 
+let winText = document.getElementById("winText")
+
+let numberOfPlays = 0
+
 let endGame = playerWon => {
-    console.log("Player " + playerWon + " won!")
+    winText.textContent = `Player ${playerWon} won!`
+    winText.style.display = "inline"
     gameRunning = false
 }
 
@@ -87,6 +92,11 @@ let checkIfWon = player => {
     if (checkHorizontal(player) || checkVertical(player) || checkSlanted(player)) {
         endGame(player)
     }
+    if (numberOfPlays === 9) { //No one won
+        winText.textContent = `No one won!`
+        winText.style.display = "inline"
+        gameRunning = false
+    }
 }
 
 for (let i = 0; i < gridChildren.length; i++) {
@@ -94,10 +104,11 @@ for (let i = 0; i < gridChildren.length; i++) {
     currentObject.addEventListener("click", e => {
         if (gameRunning) {
             if (currentObject.textContent === "") {
+                numberOfPlays++;
                 let newP = document.createElement("p")
                 newP.textContent = (currentPlayer === 1 && "X") || "O"
                 currentObject.appendChild(newP)
-                checkIfWon(currentPlayer)
+                if (numberOfPlays >= 5) { checkIfWon(currentPlayer) } //Only check after 5 plays because impossible to win earlier
                 currentPlayer = (currentPlayer === 1 && 2) || 1
             }
         }

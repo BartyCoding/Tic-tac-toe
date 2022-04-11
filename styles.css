@@ -34,6 +34,17 @@ main {
     background-color: var(--gameBoardColor);
     border-radius: 1rem;
     padding: 1rem;
+    position: relative;
+}
+
+#winText {
+    font-size: 3rem;
+    position: absolute;
+    bottom: -4rem;
+    margin: 0;
+    display: none;
+    animation: show 400ms 1s cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+    opacity: 0;
 }
 
 .item {
@@ -78,7 +89,6 @@ main {
     transform-origin: center;
     z-index: 2;
     animation: grow-left 1s ease-in-out 0s;
-    opacity: 1;
     transform: rotate(var(--winLineRotation));
 }
 
@@ -136,30 +146,24 @@ main {
 
 @media (max-width: 500px) {
     :root {
-        --borderThickness: 5px
+        --borderThickness: 5px;
+        font-size: 12px;
     }
 
     main {
         width: 60%;
         min-width: 200px;
     }
-
-    .item {
-        font-size: 3rem;
-    }
 }
 
 @media (max-width: 300px) {
     :root {
         --borderThickness: 4px;
+        font-size: 8px;
     }
 
     main {
         width: 75%;
         min-width: 175px;
-    }
-
-    .item {
-        font-size: 2rem;
     }
 }
