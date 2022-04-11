@@ -99,7 +99,7 @@ main {
     width: var(--borderThickness);
     height: 100%;
     position: absolute;
-    right: -2.5px;
+    right: calc(var(--borderThickness) / -2);
 }
 
 .item:nth-child(3n)::after {
@@ -112,8 +112,8 @@ main {
     width: calc(100% - var(--borderThickness));
     height: var(--borderThickness);
     position: absolute;
-    bottom: -2.5px;
-    left: 2.5px;
+    bottom: calc(var(--borderThickness) / -2);
+    left: calc(var(--borderThickness) / 2);
 }
 
 .last-row::before {
