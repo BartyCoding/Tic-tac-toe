@@ -12,12 +12,12 @@ let createLine = (type, position) => { //type: 1 - horizontal, 2 - vertical, 3 -
     let newDiv = document.createElement("div")
     newDiv.classList.add("winLine")
     if (type === 2) {
-        newDiv.style.transform = "rotate(90deg)"
+        document.documentElement.style.setProperty("--winLineRotation", "90deg")
     } else if (type === 3) {
-        newDiv.style.transform = "rotate(46deg)"
+        document.documentElement.style.setProperty("--winLineRotation", "46deg")
         newDiv.style.width = "375%"
     } else if (type === 4) {
-        newDiv.style.transform = "rotate(-46deg)"
+        document.documentElement.style.setProperty("--winLineRotation", "-46deg")
         newDiv.style.width = "375%"
     }
     gridChildren[position].appendChild(newDiv)

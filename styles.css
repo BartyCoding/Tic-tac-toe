@@ -5,6 +5,8 @@
     --gridOutline: #494a5066;
     --borderThickness: 7px;
 
+    --winLineRotation: 0deg;
+
     font-size: 18px;
     font-family: 'Grape Nuts', cursive;
     color: var(--textColor);
@@ -59,11 +61,11 @@ main {
 
 @keyframes grow-left {
     0% {
-        width: 0;
+        transform: rotate(var(--winLineRotation)) scaleX(0);
     }
 
     100% {
-        width: 1;
+        transform: rotate(var(--winLineRotation)) scaleX(100%);
     }
 }
 
@@ -77,6 +79,7 @@ main {
     z-index: 2;
     animation: grow-left 1s ease-in-out 0s;
     opacity: 1;
+    transform: rotate(var(--winLineRotation));
 }
 
 .item::after {
