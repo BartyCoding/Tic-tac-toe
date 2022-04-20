@@ -8,7 +8,7 @@
     --winLineRotation: 0deg;
 
     font-size: 18px;
-    font-family: 'Grape Nuts', cursive;
+    font-family: 'Nunito', sans-serif;
     color: var(--textColor);
     box-sizing: border-box;
 }
